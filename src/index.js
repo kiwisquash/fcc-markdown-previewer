@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import marked from 'marked';
 import './index.css';
 
 
@@ -16,8 +17,9 @@ class Editor extends React.Component {
 }
 
 function Preview(props) {
+
 	return (
-		<div id="preview">{props.value}</div>
+		<div id="preview" dangerouslySetInnerHTML={{__html: marked(props.value)}}/>
 	)
 }
 
@@ -37,6 +39,8 @@ class App extends React.Component {
 	}
 
 	render() {
+
+
 		return (
 			<div id="app">
 				<Editor value={this.state.text} onChange={this.handleChange}/>
@@ -46,5 +50,5 @@ class App extends React.Component {
 	}
 }
 
-
 ReactDOM.render(<App />, document.getElementById('root'));
+
