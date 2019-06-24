@@ -59,6 +59,14 @@ myRenderer.link = function(href, title, text) {
 	return `<a target='_blank' href='${href}' title='${title}'>${text}</a>`;
 }
 
+function TopBar(props) {
+	return (
+		<div id="topbar">
+			<h1>Markdown Previewer</h1>
+		</div>
+	)	
+}
+
 class Editor extends React.Component {
 
 	handleChange(e) {
@@ -98,6 +106,7 @@ class App extends React.Component {
 
 		return (
 			<div id="app">
+				<TopBar/>
 				<Editor value={this.state.text} onChange={this.handleChange}/>
 				<Preview value={this.state.text}/>
 			</div>
