@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import marked from 'marked';
 import './index.css';
 
+marked.setOptions({ 
+	breaks: true
+});
+
+const myRenderer = new marked.Renderer();
+
+myRenderer.link = function(href, title, text) {
+	return `<a target='_blank' href='${href}' title='${title}'>${text}</a>`;
+}
 
 class Editor extends React.Component {
 
@@ -19,7 +28,7 @@ class Editor extends React.Component {
 function Preview(props) {
 
 	return (
-		<div id="preview" dangerouslySetInnerHTML={{__html: marked(props.value)}}/>
+		<div id="preview" dangerouslySetInnerHTML={{__html: marked(props.value, {renderer: myRenderer})}}/>
 	)
 }
 
@@ -27,7 +36,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			text: "this is a test",
+			text: "this is a [test](http://www.gmail.com)",
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
