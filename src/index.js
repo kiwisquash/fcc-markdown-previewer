@@ -3,6 +3,52 @@ import ReactDOM from 'react-dom';
 import marked from 'marked';
 import './index.css';
 
+
+const startingText = `
+
+# h1 header
+
+## Make headers using "#"
+
+The header level equals the number of "#"s you use.
+
+## Code blocks
+
+Use \` for codeblocks.
+
+Here is inline code: \`<App />\`
+
+\`\`\`
+// this is multi-line code:
+
+def factorial(num):
+  prod = 1
+  i = 2
+  while i <= num:
+    prod *= i
+    i+=1
+  return prod
+
+\`\`\`
+
+## Formatting
+
+- Italic like this *italic* or _italic_
+- Bold like this **bold**
+- Cross out with ~cross out~
+
+> This is a blockquote, btw.
+
+## Links
+
+You can do [links](https://www.freecodecamp.com).
+
+## Image
+
+![React Logo w/ Text](https://goo.gl/Umyytc)
+
+`
+
 marked.setOptions({ 
 	breaks: true
 });
@@ -36,7 +82,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			text: "this is a [test](http://www.gmail.com)",
+			text: startingText
 		}
 		this.handleChange = this.handleChange.bind(this);
 	}
