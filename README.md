@@ -10,7 +10,7 @@ Here is a [list of requirements](https://docs.google.com/document/d/1qHmy8T33hcF
 
 # Link to CodePen
 
-https://codepen.io/kiwisquash/pen/MMyvdP
+https://codepen.io/kiwisquash/full/dBXjRZ
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
